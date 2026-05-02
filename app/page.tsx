@@ -59,7 +59,7 @@ export default async function Home() {
     <div className="flex flex-col flex-1 items-center justify-center font-sans bg-[url('@/public/cristian-palmer-XexawgzYOBc-unsplash.jpg')] bg-fixed min-h-screen">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between pb-32 px-16 m-20 gap-5">
 
-        <img src="Hackathon-Visualizer-5-2-2026.png" alt="Hackathon visualizer" className='min-w-170 m-4 bg-blue-200/80 rounded-3xl flex place-self-center'/>
+        <img src="Hackathon-Visualizer-5-2-2026.png" alt="Hackathon visualizer" className='min-w-170 m-4 bg-[#90E0EFaa] rounded-3xl flex place-self-center'/>
 
         <WhyThisMatters/>
 

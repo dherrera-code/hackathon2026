@@ -6,7 +6,7 @@ export interface DataPoint {
   Reservoir: number;
 }
 
-export interface DataProps {
+export interface DataProps  {
     month : string []
     chartTitle : string
     chartLabel: string

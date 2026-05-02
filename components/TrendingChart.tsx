@@ -2,7 +2,7 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2';
 
-const TrendingChart = () => {
+const TrendingPrecChart = () => {
 
     // const data = {
     //     labels: [],
@@ -28,7 +28,7 @@ const TrendingChart = () => {
         labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
         datasets: [
             {
-                label: 'Green Water Usages Chart',
+                label: 'Precipitation Trends',
                 data: [3,4,61,62,63,233,426,73,23,61,12,300],
                 fill: true,
                 borderColor: (context : any) => {
@@ -37,11 +37,27 @@ const TrendingChart = () => {
                     if(!chartArea) return null;
 
                     const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-                    gradient.addColorStop(0, '#d4dfed');
-                    gradient.addColorStop(0.25, "#b3d3ed");
-                    gradient.addColorStop(0.5, "#62cff4")
-                    gradient.addColorStop(0.75, "#2c67f2");
-                    gradient.addColorStop(1, '#12063b');
+
+                    gradient.addColorStop(0, '#E0F7FA');
+                    gradient.addColorStop(0.25, "#81D4FA");
+                    gradient.addColorStop(0.5, "#29B6F6")
+                    gradient.addColorStop(0.75, "#0288D1");
+                    gradient.addColorStop(1, '#01579B');
+                    console.log(gradient)
+                    return gradient;
+                },
+                backgroundColor: (context : any) => {
+                    const chart = context.chart;
+                    const {ctx, chartArea} = chart;
+                    if(!chartArea) return null;
+
+                    const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+
+                    gradient.addColorStop(0, '#E0F7FA');
+                    gradient.addColorStop(0.25, "#81D4FA");
+                    gradient.addColorStop(0.5, "#29B6F6")
+                    gradient.addColorStop(0.75, "#0288D1");
+                    gradient.addColorStop(1, '#01579B');
                     console.log(gradient)
                     return gradient;
                 },
@@ -69,29 +85,13 @@ const TrendingChart = () => {
         ],
     };
 
-    // const config = {
-    //     type: 'bar',
-    //     data: data,
-    //     options: {
-    //         responsive: true,
-    //         plugins: {
-    //             legend: {
-    //                 position: 'top',
-    //             },
-    //             title: {
-    //                 display: true,
-    //                 text: 'Chart.js Bar Chart'
-    //             }
-    //         }
-    //     },
-    // };
-
     return (
-        <div className='w-120 h-120 '>TrendingChart
+        <div className='w-120 h-120 '>
 
         <Line data={data}></Line>
         </div>
+
     )
 }
 
-export default TrendingChart
+export default TrendingPrecChart

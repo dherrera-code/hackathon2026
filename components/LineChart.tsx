@@ -109,7 +109,7 @@ const LineChart = (dataList : DataProps) => {
         setMonthArr(dataList.month)
         // setHexColor(dataList.hexLineColor)
     }, [])
-        console.log(dataList)
+        // console.log(dataList)
     return (
         <div className='min-w-170 max-h-fit '>
             {/* <h1 className='text-zinc-900'>Example 1: Line Chart</h1> */}

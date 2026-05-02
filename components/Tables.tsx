@@ -20,10 +20,10 @@ const Tables = () => {
   }, []);
 
   return (
-    <div className="overflow-x-auto flex flex-col justify-center bg-[#00000000]">
+    <div className="overflow-x-auto flex flex-col justify-center rounded-2xl!">
       <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Reservoir Capacity Monitoring</h2>
           <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-        <table className="  text-black">
+        <table className="  text-black bg-gradient-to-b from-cyan-500 to-blue-500 border-4 border-[#2a348d] rounded-2xl!">
         <thead className="">
           <tr>
             <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
@@ -49,7 +49,7 @@ const Tables = () => {
       </table>
       <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Snowpack Capacity Monitoring</h2>
           <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-        <table className="  rounded-2xl  text-black">
+        <table className=" text-black bg-gradient-to-b from-cyan-500 to-blue-500 border-4 border-[#2a348d] rounded-2xl!">
         <thead className=" ">
           <tr>
             <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
@@ -71,8 +71,8 @@ const Tables = () => {
       </table>
       <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Precipitation Capacity Monitoring</h2>
           <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-      <table className="   text-black">
-        <thead className=" rounded-2xl!">
+      <table className="   text-black bg-gradient-to-b from-cyan-500 to-blue-500 border-4 border-[#2a348d] rounded-2xl!">
+        <thead className="">
           <tr>
             <th className="text-left font-bold  min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Precipitation</th>

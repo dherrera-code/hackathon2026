@@ -111,7 +111,7 @@ const LineChart = (dataList : DataProps) => {
     }, [])
         console.log(dataList)
     return (
-        <div className='w-120 h-120 '>
+        <div className='min-w-170 max-h-fit '>
             {/* <h1 className='text-zinc-900'>Example 1: Line Chart</h1> */}
             <Line options={options} data={data} />
         </div>

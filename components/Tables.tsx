@@ -4,7 +4,7 @@ import { DataArrays, DataPoint } from '@/lib/data-interface';
 import { getDataArrays, getDataPoints } from '@/lib/data-service';
 import React, { useEffect, useState } from 'react';
 
-const Page = () => {
+const Tables = () => {
   const [datapoints, setDatapoints] = useState<DataPoint[]>([]);
     const [dataarrays, setDataArrays] = useState<DataArrays[]>([]);
 
@@ -20,11 +20,11 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="overflow-x-auto flex flex-col justify-center ">
+    <div className="overflow-x-auto flex flex-col justify-center bg-[#00000000]">
       <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Reservoir Capacity Monitoring</h2>
           <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-        <table className=" bg-[#90E0EF] text-black">
-        <thead className="bg-[#90E0EF]">
+        <table className="  text-black">
+        <thead className="">
           <tr>
             <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Reservoir</th>
@@ -33,7 +33,7 @@ const Page = () => {
         </thead>
         <tbody>
           {datapoints && datapoints.map((point, index) => (
-            <tr key={index} className='bg-white'>
+            <tr key={index} className=''>
               <td className="text-black pl-5">
                 {point.Date}
               </td>
@@ -49,8 +49,8 @@ const Page = () => {
       </table>
       <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Snowpack Capacity Monitoring</h2>
           <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-        <table className=" bg-[#90E0EF] rounded-2xl  text-black">
-        <thead className="bg-[#90E0EF] ">
+        <table className="  rounded-2xl  text-black">
+        <thead className=" ">
           <tr>
             <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Snowpack</th>
@@ -59,7 +59,7 @@ const Page = () => {
         </thead>
         <tbody>
           {datapoints && datapoints.map((point, index) => (
-            <tr key={index} className='bg-white'>
+            <tr key={index} className=''>
               <td className="text-black pl-5">
                 {point.Date}
               </td><td className="text-black">
@@ -71,8 +71,8 @@ const Page = () => {
       </table>
       <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Precipitation Capacity Monitoring</h2>
           <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-      <table className=" bg-[#90E0EF]  text-black">
-        <thead className="bg-[#90E0EF] rounded-2xl!">
+      <table className="   text-black">
+        <thead className=" rounded-2xl!">
           <tr>
             <th className="text-left font-bold  min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Precipitation</th>
@@ -81,7 +81,7 @@ const Page = () => {
         </thead>
         <tbody>
           {datapoints && datapoints.map((point, index) => (
-            <tr key={index} className='bg-white'>
+            <tr key={index} className=''>
               <td className="text-black pl-5">
                 {point.Date}
               </td><td className="text-black">
@@ -97,4 +97,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Tables;

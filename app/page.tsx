@@ -52,17 +52,19 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans bg-[url('@/public/cristian-palmer-XexawgzYOBc-unsplash.jpg')] bg-fixed min-h-screen">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 m-20 bg-[#bcf4ff88]">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 m-20 gap-5">
+        <img src="Hackathon-Visualizer-5-2-2026.png" alt="Hackathon visualizer" className='w-[clamp(10rem,50vw,50vw)] flex place-self-center'/>
         <div className="bg-white rounded-2xl"><LineChart month={prec.month} chartTitle={prec.chartTitle} chartLabel={prec.chartLabel} dataSets={prec.dataSets}></LineChart></div>
-        <LineChart month={prec.month} chartTitle={prec.chartTitle} chartLabel={prec.chartLabel} dataSets={prec.dataSets}></LineChart>
-        <LineChart month={snow.month} chartTitle={snow.chartTitle} chartLabel={snow.chartLabel} dataSets={snow.dataSets}></LineChart>
-        <LineChart month={rese.month} chartTitle={rese.chartTitle} chartLabel={rese.chartLabel} dataSets={rese.dataSets}></LineChart>
-        <LineChart month={diff_prec.month} chartTitle={diff_prec.chartTitle} chartLabel={diff_prec.chartLabel} dataSets={diff_prec.dataSets}></LineChart>
-        <LineChart month={diff_snow.month} chartTitle={diff_snow.chartTitle} chartLabel={diff_snow.chartLabel} dataSets={diff_snow.dataSets}></LineChart>
-        <LineChart month={diff_rese.month} chartTitle={diff_rese.chartTitle} chartLabel={diff_rese.chartLabel} dataSets={diff_rese.dataSets}></LineChart>
+        <div className="bg-white rounded-2xl"><LineChart month={prec.month} chartTitle={prec.chartTitle} chartLabel={prec.chartLabel} dataSets={prec.dataSets}></LineChart></div>
+        <div className="bg-white rounded-2xl"><LineChart month={snow.month} chartTitle={snow.chartTitle} chartLabel={snow.chartLabel} dataSets={snow.dataSets}></LineChart></div>
+        <div className="bg-white rounded-2xl"><LineChart month={rese.month} chartTitle={rese.chartTitle} chartLabel={rese.chartLabel} dataSets={rese.dataSets}></LineChart></div>
+        <div className="bg-white rounded-2xl"><LineChart month={diff_prec.month} chartTitle={diff_prec.chartTitle} chartLabel={diff_prec.chartLabel} dataSets={diff_prec.dataSets}></LineChart></div>
+        <div className="bg-white rounded-2xl"><LineChart month={diff_snow.month} chartTitle={diff_snow.chartTitle} chartLabel={diff_snow.chartLabel} dataSets={diff_snow.dataSets}></LineChart></div>
+        <div className="bg-white rounded-2xl"><LineChart month={diff_rese.month} chartTitle={diff_rese.chartTitle} chartLabel={diff_rese.chartLabel} dataSets={diff_rese.dataSets}></LineChart></div>
       
       <Tables/>
       </main>
     </div>
   );
 }
+ 

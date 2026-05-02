@@ -20,10 +20,10 @@ const Tables = () => {
   }, []);
 
   return (
-    <div className="overflow-x-auto flex flex-col justify-center bg-[#00000000]">
-      <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Reservoir Capacity Monitoring</h2>
-          <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-        <table className="  text-black">
+    <div className="overflow-x-auto flex flex-col justify-center">
+        <img src="Reservoir-5-2-2026.png" alt="Reservoir" className='w-[clamp(10rem,50vw,50vw)] flex place-self-center'/>
+          <p className='text-[#90E0EF] font-bold text-xl my-5'>Reservoir water storage telemetry and historical trends.</p>
+        <table className="  text-black bg-gradient-to-b from-cyan-200 to-blue-500 border-4 border-[#2a348d] min-w-170 max-h-fit">
         <thead className="">
           <tr>
             <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
@@ -47,9 +47,9 @@ const Tables = () => {
           ))}
         </tbody>
       </table>
-      <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Snowpack Capacity Monitoring</h2>
-          <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-        <table className="  rounded-2xl  text-black">
+<img src="Snowpack-5-2-2026.png" alt="Snowpack" className='w-[clamp(10rem,50vw,50vw)] flex place-self-center'/>
+          <p className='text-[#90E0EF] font-bold text-xl my-5'>Reservoir water storage telemetry and historical trends.</p>
+        <table className=" text-black bg-gradient-to-b from-cyan-200 to-blue-500 border-4 border-[#2a348d]">
         <thead className=" ">
           <tr>
             <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
@@ -69,10 +69,10 @@ const Tables = () => {
           ))}
         </tbody>
       </table>
-      <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Precipitation Capacity Monitoring</h2>
-          <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
-      <table className="   text-black">
-        <thead className=" rounded-2xl!">
+      <img src="Precipitation-5-2-2026.png" alt="Precipitation" className='w-[clamp(10rem,50vw,50vw)] flex place-self-center'/>
+          <p className='text-[#90E0EF] font-bold text-xl my-5'>Reservoir water storage telemetry and historical trends.</p>
+      <table className="   text-black bg-gradient-to-b from-cyan-200 to-blue-500 border-4 border-[#2a348d] rounded-2xl!">
+        <thead className="">
           <tr>
             <th className="text-left font-bold  min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Precipitation</th>

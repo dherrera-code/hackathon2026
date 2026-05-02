@@ -23,7 +23,7 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="overflow-x-auto flex flex-col justify-center ">
+    <div className="overflow-x-auto flex flex-col justify-center min-w-170">
       <h2 className='text-[#90E0EF] font-bold text-2xl my-5'>Reservoir Capacity Monitoring</h2>
           <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
         <table className=" bg-[#90E0EF] text-black">

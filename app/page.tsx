@@ -1,4 +1,5 @@
 import LineChart from "@/components/LineChart";
+import Tables from "@/components/Tables";
 
 import { DataProps } from "@/lib/data-interface";
 
@@ -26,6 +27,8 @@ export default function Home() {
         {/* <LineChart dataList={prec} /> */}
         <LineChart month={prec.month} chartTitle={prec.chartTitle} chartLabel={prec.chartLabel} dataSets={prec.dataSets}></LineChart>
         <LineChart month={snow.month} chartTitle={snow.chartTitle} chartLabel={snow.chartLabel} dataSets={snow.dataSets}></LineChart>
+      <Tables/>
+      
       </main>
     </div>
   );

@@ -4,7 +4,7 @@ import { DataArrays, DataPoint } from '@/lib/data-interface';
 import { getDataArrays, getDataPoints } from '@/lib/data-service';
 import React, { useEffect, useState } from 'react';
 
-const Page = () => {
+const Tables = () => {
   const [datapoints, setDatapoints] = useState<DataPoint[]>([]);
     const [dataarrays, setDataArrays] = useState<DataArrays[]>([]);
 
@@ -97,4 +97,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Tables;

@@ -13,42 +13,42 @@ export default async function Home() {
   let data = await getFakeData();
 
   const prec: DataProps = {
-    chartTitle: "Precipitation",
-    chartLabel : "Percentage",
+    chartTitle: "Precipitation Measurements",
+    chartLabel : "Percentage of Average",
     month: data.arrays.arr_date,
     dataSets: data.arrays.arr_pct_precipitation,
   }
 
   const snow: DataProps = {
-    chartTitle: "Snowpack",
-    chartLabel : "Percentage",
+    chartTitle: "Snowpack Measurements",
+    chartLabel : "Percentage of Average",
     month: data.arrays.arr_date,
     dataSets: data.arrays.arr_pct_snowpack,
   }
 
   const rese: DataProps = {
-    chartTitle: "Reservoir",
-    chartLabel : "Percentage",
+    chartTitle: "Reservoir Measurements",
+    chartLabel : "Percentage of Average",
     month: data.arrays.arr_date,
     dataSets: data.arrays.arr_pct_reservoir,
   }
 
   const diff_prec: DataProps = {
-    chartTitle: "Precipitation",
+    chartTitle: "Precipitation Measurements",
     chartLabel : "Percentage Point Delta",
     month: data.arrays.arr_date,
     dataSets: data.arrays.arr_ppt_diff_precipitation,
   }
 
   const diff_snow: DataProps = {
-    chartTitle: "Snowpack",
+    chartTitle: "Snowpack Measurements",
     chartLabel : "Percentage Point Delta",
     month: data.arrays.arr_date,
     dataSets: data.arrays.arr_ppt_diff_snowpack,
   }
 
   const diff_rese: DataProps = {
-    chartTitle: "Reservoir",
+    chartTitle: "Reservoir Measurements",
     chartLabel : "Percentage Point Delta",
     month: data.arrays.arr_date,
     dataSets: data.arrays.arr_ppt_diff_reservoir,
@@ -72,7 +72,7 @@ export default async function Home() {
         <div className="bg-white rounded-2xl p-4"><TrendingReservChart month={diff_rese.month} chartTitle={diff_rese.chartTitle} chartLabel={diff_rese.chartLabel} dataSets={diff_rese.dataSets} /></div>
 
         {/* <div className="bg-white rounded-2xl p-4"><AllTrendingChart snowpack={diff_snow.dataSets} reservoir={diff_rese.dataSets} precipitation={diff_prec.dataSets} month={diff_prec.month} chartTitle={"All Trending Components"} chartLabel={""} dataSets={[]} /></div> */}
-      
+
       <Tables/>
       </main>
     </div>

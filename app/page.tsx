@@ -4,6 +4,7 @@ import Tables from "@/components/Tables";
 import TrendingPrecChart from "@/components/TrendingChart";
 import TrendingReservChart from "@/components/TrendingReservChart";
 import TrendingSnowChart from "@/components/TrendingSnowChart";
+import WhyThisMatters from "@/components/WhyThisMatters";
 
 import { DataProps } from "@/lib/data-interface";
 import { getDataArraysStats } from "@/lib/data-service";
@@ -56,10 +57,9 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans bg-[url('@/public/cristian-palmer-XexawgzYOBc-unsplash.jpg')] bg-fixed min-h-screen">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between pb-32 px-16 m-20 gap-5">
-
-        <img src="Hackathon-Visualizer-5-2-2026.png" alt="Hackathon visualizer" className='w-[clamp(10rem,50vw,50vw)] m-4 bg-blue-200/80 rounded-3xl flex place-self-center'/>
-        
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 m-20 gap-5">
+        <img src="Hackathon-Visualizer-5-2-2026.png" alt="Hackathon visualizer" className='w-[clamp(10rem,50vw,50vw)] flex place-self-center'/>
+        <WhyThisMatters/>
         <div className="bg-white rounded-2xl p-4 "><LineChart month={prec.month} chartTitle={prec.chartTitle} chartLabel={prec.chartLabel} dataSets={prec.dataSets}></LineChart></div>
         <div className="bg-white rounded-2xl p-4"><LineChart month={snow.month} chartTitle={snow.chartTitle} chartLabel={snow.chartLabel} dataSets={snow.dataSets}></LineChart></div>
         <div className="bg-white rounded-2xl p-4 "><LineChart month={rese.month} chartTitle={rese.chartTitle} chartLabel={rese.chartLabel} dataSets={rese.dataSets}></LineChart></div>

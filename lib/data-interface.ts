@@ -12,3 +12,10 @@ export interface DataArrays {
   precipitation: number[];
   reservoir: number[];
 }
+
+export interface DataProps  {
+    month : string []
+    chartTitle : string
+    chartLabel: string
+    dataSets : number []
+}

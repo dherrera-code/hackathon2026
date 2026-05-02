@@ -7,7 +7,7 @@ const BottomFooter = () => {
             <Footer className='rounded-none bg-[#90E0EF]' container>
                 <FooterCopyright href="#" by="Sea#" year={2026} />
                 <FooterLinkGroup>
-                    <FooterLink href="#">Daniel Herrera</FooterLink>
+                    <FooterLink href="https://github.com/dherrera-code">Daniel Herrera</FooterLink>
                     <FooterLink href="#">Darcy Rose</FooterLink>
                     <FooterLink href="https://github.com/IJGGGR">Isaias Gonzalez</FooterLink>
                 </FooterLinkGroup>

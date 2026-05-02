@@ -5,3 +5,10 @@ export interface DataPoint {
   Precip: number;
   Reservoir: number;
 }
+
+export interface DataProps {
+    month : string []
+    chartTitle : string
+    chartLabel: string
+    dataSets : number []
+}

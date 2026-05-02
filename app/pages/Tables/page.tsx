@@ -1,20 +1,23 @@
 'use client';
 
-import { DataArrays, DataPoint } from '@/lib/data-interface';
-import { getDataArrays, getDataPoints } from '@/lib/data-service';
+import { DataArrays, DataArraysStats, DataPoint, DataPointStats } from '@/lib/data-interface';
+import { getDataArrays, getDataArraysStats, getDataPoints, getDataPointsStats } from '@/lib/data-service';
+import { stat } from 'fs';
 import React, { useEffect, useState } from 'react';
 
 const Page = () => {
-  const [datapoints, setDatapoints] = useState<DataPoint[]>([]);
-    const [dataarrays, setDataArrays] = useState<DataArrays[]>([]);
-
+  const [datapoints, setDatapoints] = useState<DataPointStats[]>([]);
+    const [dataarrays, setDataArrays] = useState<DataArrays>();
+    const [stats, setStats] = useState<DataArraysStats>();
 
   useEffect(() => {
     async function loadData() {
-      const data = await getDataPoints();
+      const data = await getDataPointsStats();
       setDatapoints(data);
       const dataArrays = await getDataArrays();
-      setDataArrays(Array(dataArrays))
+      setDataArrays(dataArrays)
+      const dataStats = await getDataArraysStats();
+      setStats(dataStats)
     }
     loadData();
   }, []);
@@ -28,19 +31,20 @@ const Page = () => {
           <tr>
             <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Reservoir</th>
-
+            <th className="text-left font-bold min-w-[150px] max-w-md">Difference</th>
           </tr>
         </thead>
         <tbody>
-          {datapoints && datapoints.map((point, index) => (
+          {Array(datapoints) && datapoints.map((point, index) => (
             <tr key={index} className='bg-white'>
               <td className="text-black pl-5">
-                {point.Date}
+                {point.date}
               </td>
               <td className="text-black">
-                {point.Reservoir}
+                {point.pct_reservoir}
               </td>
-                <td className="text-black">
+              <td className="text-black">
+                {point.ppt_diff_reservoir}
               </td>
             </tr>
             
@@ -61,9 +65,12 @@ const Page = () => {
           {datapoints && datapoints.map((point, index) => (
             <tr key={index} className='bg-white'>
               <td className="text-black pl-5">
-                {point.Date}
+                {point.date}
               </td><td className="text-black">
-                {point.Snowpack}
+                {point.pct_snowpack}
+              </td>
+              <td className="text-black">
+                {point.ppt_diff_snowpack}
               </td>
             </tr>
           ))}
@@ -76,16 +83,19 @@ const Page = () => {
           <tr>
             <th className="text-left font-bold  min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Precipitation</th>
-
+            <th className="text-left font-bold min-w-[150px] max-w-md">Difference</th>
           </tr>
         </thead>
         <tbody>
           {datapoints && datapoints.map((point, index) => (
             <tr key={index} className='bg-white'>
               <td className="text-black pl-5">
-                {point.Date}
+                {point.date}
               </td><td className="text-black">
-                {point.Precip}
+                {point.pct_precipitation}
+              </td>
+              <td className="text-black">
+                {point.ppt_diff_precipitation}
               </td>
             </tr>
           ))}

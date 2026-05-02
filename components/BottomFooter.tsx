@@ -8,7 +8,7 @@ const BottomFooter = () => {
                 <FooterCopyright href="#" by="Sea#" year={2026} />
                 <FooterLinkGroup>
                     <FooterLink href="https://github.com/dherrera-code">Daniel Herrera</FooterLink>
-                    <FooterLink href="#">Darcy Rose</FooterLink>
+                    <FooterLink href="https://github.com/dbugrose">Darcy Rose</FooterLink>
                     <FooterLink href="https://github.com/IJGGGR">Isaias Gonzalez</FooterLink>
                 </FooterLinkGroup>
             </Footer>

@@ -1,4 +1,4 @@
-import AllTrendingChart from "@/components/AllTrendingChart";
+
 import LineChart from "@/components/LineChart";
 import Tables from "@/components/Tables";
 import TrendingPrecChart from "@/components/TrendingChart";

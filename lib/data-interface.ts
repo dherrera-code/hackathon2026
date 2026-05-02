@@ -11,4 +11,5 @@ export interface DataProps  {
     chartTitle : string
     chartLabel: string
     dataSets : number []
+    hexLineColor : string
 }

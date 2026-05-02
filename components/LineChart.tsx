@@ -45,6 +45,7 @@ const LineChart = (dataList : DataProps) => {
     const [chartLabel, setChartLabel] = useState("")
     const [monthArr, setMonthArr] = useState<string []>([])
     const [dataNumbers, setDataNumbers] = useState<number []>([])
+    const [hexColor, setHexColor] = useState("")
 
     const options = {
         responsive: true,
@@ -94,23 +95,23 @@ const LineChart = (dataList : DataProps) => {
             {
                 label: chartLabel,
                 data: dataNumbers,
-                fill: false,
+                fill: true,
                 tension: 0.2,
-                color: "#0000FF"
+                color: "#FF0000"
             }
         ]
     };
-    
 
     useEffect( () => {
         setChartTitle(dataList.chartTitle)
         setChartLabel(dataList.chartLabel)
         setDataNumbers(dataList.dataSets);
         setMonthArr(dataList.month)
+        setHexColor(dataList.hexLineColor)
     }, [])
-
+        console.log(dataList)
     return (
-        <div className='min-w-170 min-h-170 '>
+        <div className='w-120 h-120 '>
             {/* <h1 className='text-zinc-900'>Example 1: Line Chart</h1> */}
             <Line options={options} data={data} />
         </div>

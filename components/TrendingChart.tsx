@@ -1,40 +1,47 @@
 'use client'
-import React from 'react'
+import { DataProps } from '@/lib/data-interface';
+import { useEffect, useState } from 'react'
 import { Line } from 'react-chartjs-2';
 
-const TrendingPrecChart = () => {
+const TrendingPrecChart = (dataList: DataProps) => {
 
-    // const data = {
-    //     labels: [],
-    //     datasets: [
-    //         {
-    //             label: 'Dataset 1',
-    //             data: [1,4,2,54,2,4,2,5,2,2],
-    //             borderColor: (context : any) => {
-    //                 console.log(context)
-    //             },
-    //             backgroundColor: "FF00FF",
-    //         },
-    //         {
-    //             label: 'Dataset 2',
-    //             data: [2,3,5,3,2,54,2,2,4,2,24,3],
-    //             borderColor: "#0000FF",
-    //             backgroundColor: "#000FFF",
-    //         }
-    //     ]
-    // }
+    const [chartTitle, setChartTitle] = useState("");
+    const [chartLabel, setChartLabel] = useState("")
+    const [monthArr, setMonthArr] = useState<string[]>([])
+    const [dataNumbers, setDataNumbers] = useState<number[]>([])
+
+     useEffect( () => {
+            setChartTitle(dataList.chartTitle)
+            setChartLabel(dataList.chartLabel)
+            setDataNumbers(dataList.dataSets);
+            setMonthArr(dataList.month)
+            // setHexColor(dataList.hexLineColor)
+        }, [])
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top' as const,
+            },
+            title: {
+                display: true,
+                text: chartTitle
+            }
+        }
+    }
 
     const data = {
-        labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+        labels: monthArr,
         datasets: [
             {
-                label: 'Precipitation Trends',
-                data: [3,4,61,62,63,233,426,73,23,61,12,300],
+                label: chartLabel,
+                data: dataNumbers,
                 fill: true,
-                borderColor: (context : any) => {
+                borderColor: (context: any) => {
                     const chart = context.chart;
-                    const {ctx, chartArea} = chart;
-                    if(!chartArea) return null;
+                    const { ctx, chartArea } = chart;
+                    if (!chartArea) return null;
 
                     const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
 
@@ -46,10 +53,10 @@ const TrendingPrecChart = () => {
                     console.log(gradient)
                     return gradient;
                 },
-                backgroundColor: (context : any) => {
+                backgroundColor: (context: any) => {
                     const chart = context.chart;
-                    const {ctx, chartArea} = chart;
-                    if(!chartArea) return null;
+                    const { ctx, chartArea } = chart;
+                    if (!chartArea) return null;
 
                     const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
 
@@ -86,9 +93,9 @@ const TrendingPrecChart = () => {
     };
 
     return (
-        <div className='w-120 h-120 '>
-
-        <Line data={data}></Line>
+        <div className='min-w-170 max-h-fit '>
+            {/* <h1 className='text-zinc-900'>Example 1: Line Chart</h1> */}
+            <Line options={options} data={data} />
         </div>
 
     )

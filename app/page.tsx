@@ -61,6 +61,8 @@ export default async function Home() {
 
         <img src="Hackathon-Visualizer-5-2-2026.png" alt="Hackathon visualizer" className='w-[clamp(10rem,50vw,50vw)] flex place-self-center'/>
 
+        <WhyThisMatters/>
+
         <div className="bg-white rounded-2xl p-4"><LineChart month={prec.month} chartTitle={prec.chartTitle} chartLabel={prec.chartLabel} dataSets={prec.dataSets} /></div>
         <div className="bg-white rounded-2xl p-4"><LineChart month={snow.month} chartTitle={snow.chartTitle} chartLabel={snow.chartLabel} dataSets={snow.dataSets} /></div>
         <div className="bg-white rounded-2xl p-4"><LineChart month={rese.month} chartTitle={rese.chartTitle} chartLabel={rese.chartLabel} dataSets={rese.dataSets} /></div>

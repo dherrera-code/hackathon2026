@@ -13,7 +13,7 @@ export default function Home() {
   }
 
   const snow: DataProps = {
-    chartTitle: "Water Usages Chart",
+    chartTitle: "Water Usages Chart 2",
     chartLabel : "Water label",
     month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     dataSets:

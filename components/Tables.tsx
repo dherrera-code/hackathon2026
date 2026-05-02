@@ -28,10 +28,10 @@ const Page = () => {
           <p className='text-[#90E0EF] font-bold text-xl my-5'>Regional water storage telemetry and historical trends.</p>
         
         <div className='max-h-[300px] overflow-y-scroll'>
-        <table className=" bg-[#90E0EF] text-black min-w-full">
+        <table className=" bg-[#90E0EF] text-black min-w-full ">
         <thead className="bg-[#90E0EF]">
           <tr>
-            <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
+            <th className="text-left p-3 font-bold min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Reservoir</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Difference</th>
           </tr>
@@ -39,7 +39,7 @@ const Page = () => {
         <tbody>
           {Array(datapoints) && datapoints.map((point, index) => (
             <tr key={index} className='bg-white'>
-              <td className="text-black pl-5 border-b-2">
+              <td className="text-black p-2 pl-5 border-b-2">
                 {point.date}
               </td>
               <td className="text-black border-b-2">
@@ -60,7 +60,7 @@ const Page = () => {
         <div className='max-h-[300px] overflow-y-scroll'><table className=" bg-[#90E0EF] rounded-2xl min-w-full text-black">
         <thead className="bg-[#90E0EF]">
           <tr>
-            <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
+            <th className="text-left p-3 font-bold min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Snowpack</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Difference</th>
 
@@ -70,7 +70,7 @@ const Page = () => {
         <tbody>
           {datapoints && datapoints.map((point, index) => (
             <tr key={index} className='bg-white'>
-              <td className="text-black pl-5 border-b-2">
+              <td className="text-black pl-5 p-2 border-b-2">
                 {point.date}
               </td><td className="text-black border-b-2">
                 {point.pct_snowpack}
@@ -89,7 +89,7 @@ const Page = () => {
       <table className=" bg-[#90E0EF]  text-black min-w-full ">
         <thead className="bg-[#90E0EF] rounded-2xl!">
           <tr>
-            <th className="text-left font-bold min-w-[150px] max-w-md">Date</th>
+            <th className="text-left p-3 font-bold min-w-[150px] max-w-md">Date</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Precipitation</th>
             <th className="text-left font-bold min-w-[150px] max-w-md">Difference</th>
           </tr>
@@ -97,7 +97,7 @@ const Page = () => {
         <tbody>
           {datapoints && datapoints.map((point, index) => (
             <tr key={index} className='bg-white'>
-              <td className="text-black pl-5 border-b-2">
+              <td className="text-black p-2 pl-5 border-b-2">
                 {point.date}
               </td><td className="text-black border-b-2">
                 {point.pct_precipitation}

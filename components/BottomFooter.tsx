@@ -9,7 +9,7 @@ const BottomFooter = () => {
                 <FooterLinkGroup>
                     <FooterLink href="#">Daniel Herrera</FooterLink>
                     <FooterLink href="#">Darcy Rose</FooterLink>
-                    <FooterLink href="#">Isaias Gonzales</FooterLink>
+                    <FooterLink href="https://github.com/IJGGGR">Isaias Gonzalez</FooterLink>
                 </FooterLinkGroup>
             </Footer>
 

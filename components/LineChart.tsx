@@ -45,7 +45,7 @@ const LineChart = (dataList : DataProps) => {
     const [chartLabel, setChartLabel] = useState("")
     const [monthArr, setMonthArr] = useState<string []>([])
     const [dataNumbers, setDataNumbers] = useState<number []>([])
-    const [hexColor, setHexColor] = useState("")
+    // const [hexColor, setHexColor] = useState("")
 
     const options = {
         responsive: true,
@@ -107,7 +107,7 @@ const LineChart = (dataList : DataProps) => {
         setChartLabel(dataList.chartLabel)
         setDataNumbers(dataList.dataSets);
         setMonthArr(dataList.month)
-        setHexColor(dataList.hexLineColor)
+        // setHexColor(dataList.hexLineColor)
     }, [])
         console.log(dataList)
     return (

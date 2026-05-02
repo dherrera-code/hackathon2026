@@ -1,4 +1,5 @@
 import LineChart from "@/components/LineChart";
+import TrendingChart from "@/components/TrendingChart";
 
 import { DataProps } from "@/lib/data-interface";
 import { getDataArraysStats } from "@/lib/data-service";
@@ -47,6 +48,7 @@ export default async function Home() {
     month: data.arr_date,
     dataSets:  data.arr_ppt_diff_reservoir,
   }
+
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans">

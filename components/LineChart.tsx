@@ -110,7 +110,7 @@ const LineChart = (dataList : DataProps) => {
     }, [])
 
     return (
-        <div className='min-w-170 min-h-170 '>
+        <div className='min-w-170 max-h-fit '>
             {/* <h1 className='text-zinc-900'>Example 1: Line Chart</h1> */}
             <Line options={options} data={data} />
         </div>

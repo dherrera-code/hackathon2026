@@ -50,8 +50,9 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white sm:items-start">
+    <div className="flex flex-col flex-1 items-center justify-center font-sans bg-[url('@/public/cristian-palmer-XexawgzYOBc-unsplash.jpg')] bg-fixed min-h-screen">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 m-20 bg-[#bcf4ff88]">
+        <div className="bg-white rounded-2xl"><LineChart month={prec.month} chartTitle={prec.chartTitle} chartLabel={prec.chartLabel} dataSets={prec.dataSets}></LineChart></div>
         <LineChart month={prec.month} chartTitle={prec.chartTitle} chartLabel={prec.chartLabel} dataSets={prec.dataSets}></LineChart>
         <LineChart month={snow.month} chartTitle={snow.chartTitle} chartLabel={snow.chartLabel} dataSets={snow.dataSets}></LineChart>
         <LineChart month={rese.month} chartTitle={rese.chartTitle} chartLabel={rese.chartLabel} dataSets={rese.dataSets}></LineChart>

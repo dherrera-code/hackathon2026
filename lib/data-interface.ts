@@ -5,3 +5,10 @@ export interface DataPoint {
   Precip: number;
   Reservoir: number;
 }
+
+export interface DataArrays {
+  date: string[];
+  snowpack: number[];
+  precipitation: number[];
+  reservoir: number[];
+}

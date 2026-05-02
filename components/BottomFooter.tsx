@@ -4,12 +4,12 @@ import React from 'react'
 const BottomFooter = () => {
     return (
         <div>
-            <Footer container>
+            <Footer className='rounded-none bg-[#90E0EF]' container>
                 <FooterCopyright href="#" by="Sea#" year={2026} />
                 <FooterLinkGroup>
                     <FooterLink href="#">Daniel Herrera</FooterLink>
                     <FooterLink href="#">Darcy Rose</FooterLink>
-                    <FooterLink href="#">Isaias Gonzales</FooterLink>
+                    <FooterLink href="https://github.com/IJGGGR">Isaias Gonzalez</FooterLink>
                 </FooterLinkGroup>
             </Footer>
 

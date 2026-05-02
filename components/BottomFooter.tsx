@@ -4,7 +4,7 @@ import React from 'react'
 const BottomFooter = () => {
     return (
         <div>
-            <Footer className='rounded-none' container>
+            <Footer className='rounded-none bg-[#90E0EF]' container>
                 <FooterCopyright href="#" by="Sea#" year={2026} />
                 <FooterLinkGroup>
                     <FooterLink href="#">Daniel Herrera</FooterLink>

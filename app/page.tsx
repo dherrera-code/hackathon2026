@@ -4,6 +4,7 @@ import Tables from "@/components/Tables";
 import TrendingPrecChart from "@/components/TrendingChart";
 import TrendingReservChart from "@/components/TrendingReservChart";
 import TrendingSnowChart from "@/components/TrendingSnowChart";
+import WhyThisMatters from "@/components/WhyThisMatters";
 
 import { DataProps } from "@/lib/data-interface";
 import { getFakeData } from "@/lib/data-service";

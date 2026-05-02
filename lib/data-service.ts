@@ -1,4 +1,4 @@
-import { DataArrays, DataArraysStats, DataPoint, DataPointStats } from "./data-interface";
+import { DataArrays, DataArraysStats, DataPoint, DataPointStats, FakeData } from "./data-interface";
 
 export async function getDataPoints(): Promise<DataPoint[]> {
   try {
@@ -45,10 +45,10 @@ export async function getDataPointsStats(): Promise<DataPointStats[]> {
 
   for (let i = 0; i < arr.length; i++) {
     let tmp: DataPointStats = {
-      date:               arr[i].Date,
-      pct_snowpack:       arr[i].Snowpack,
-      pct_precipitation:  arr[i].Precip,
-      pct_reservoir:      arr[i].Reservoir,
+      date:                   arr[i].Date,
+      pct_snowpack:           +(arr[i].Snowpack),
+      pct_precipitation:      +(arr[i].Precip),
+      pct_reservoir:          +(arr[i].Reservoir),
       ppt_diff_snowpack:      0,
       ppt_diff_precipitation: 0,
       ppt_diff_reservoir:     0,
@@ -75,24 +75,84 @@ export async function getDataArraysStats(): Promise<DataArraysStats> {
   let arr = await getDataPointsStats();
 
   let obj: DataArraysStats = {
-    arr_date:                   [],
-    arr_pct_snowpack:           [],
-    arr_pct_precipitation:      [],
-    arr_pct_reservoir:          [],
-    arr_ppt_diff_snowpack:      [],
-    arr_ppt_diff_precipitation: [],
-    arr_ppt_diff_reservoir:     [],
+    arr_date:                   arr.map(v => v.date),
+    arr_pct_snowpack:           arr.map(v => v.pct_snowpack),
+    arr_pct_precipitation:      arr.map(v => v.pct_precipitation),
+    arr_pct_reservoir:          arr.map(v => v.pct_reservoir),
+    arr_ppt_diff_snowpack:      arr.map(v => v.ppt_diff_snowpack),
+    arr_ppt_diff_precipitation: arr.map(v => v.ppt_diff_precipitation),
+    arr_ppt_diff_reservoir:     arr.map(v => v.ppt_diff_reservoir),
   };
 
-  for (let i = 0; i < arr.length; i++) {
-    obj.arr_date.push(arr[i].date);
-    obj.arr_pct_snowpack.push(arr[i].pct_snowpack);
-    obj.arr_pct_precipitation.push(arr[i].pct_precipitation);
-    obj.arr_pct_reservoir.push(arr[i].pct_reservoir);
-    obj.arr_ppt_diff_snowpack.push(arr[i].ppt_diff_snowpack);
-    obj.arr_ppt_diff_precipitation.push(arr[i].ppt_diff_precipitation);
-    obj.arr_ppt_diff_reservoir.push(arr[i].ppt_diff_reservoir);
+  return obj;
+}
+
+export async function getFakeData() {
+  let real = await getDataPointsStats();
+  let years = real.length / 12;
+  let fake: DataPointStats[] = [];
+
+  // * SUM =========================================
+
+  let sum_s = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+  let sum_p = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+  let sum_r = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+
+  for (let i = 0; i < real.length; i++) {
+    let m = i % 12;
+    sum_s[m] += +(real[i].pct_snowpack);
+    sum_p[m] += +(real[i].pct_precipitation);
+    sum_r[m] += +(real[i].pct_reservoir);
   }
+
+  // * AVG =========================================
+
+  let avg_s = sum_s.map(v => v / years);
+  let avg_p = sum_p.map(v => v / years);
+  let avg_r = sum_r.map(v => v / years);
+
+  // * GEN =========================================
+
+  for (let i = real.length; i < real.length + 12; i++) {
+    let m = i % 12;
+    let tmp: DataPointStats = {
+      date:                   `${m + 1}/1/26`,
+      pct_snowpack:           avg_s[m],
+      pct_precipitation:      avg_p[m],
+      pct_reservoir:          avg_r[m],
+      ppt_diff_snowpack:      0,
+      ppt_diff_precipitation: 0,
+      ppt_diff_reservoir:     0,
+    };
+
+    if (i == real.length) {
+      tmp.ppt_diff_snowpack       = avg_s[m] - real[i - 1].pct_snowpack;
+      tmp.ppt_diff_precipitation  = avg_p[m] - real[i - 1].pct_precipitation;
+      tmp.ppt_diff_reservoir      = avg_r[m] - real[i - 1].pct_reservoir;
+    } else {
+      tmp.ppt_diff_snowpack       = avg_s[m] - avg_s[m - 1];
+      tmp.ppt_diff_precipitation  = avg_p[m] - avg_p[m - 1];
+      tmp.ppt_diff_reservoir      = avg_r[m] - avg_r[m - 1];
+    }
+
+    fake.push(tmp);
+  }
+
+  // * OBJ =========================================
+
+  let points = [ ...real, ...fake ];
+
+  let arrays: DataArraysStats = {
+    arr_date:                   points.map(v => v.date),
+    arr_pct_snowpack:           points.map(v => v.pct_snowpack),
+    arr_pct_precipitation:      points.map(v => v.pct_precipitation),
+    arr_pct_reservoir:          points.map(v => v.pct_reservoir),
+    arr_ppt_diff_snowpack:      points.map(v => v.ppt_diff_snowpack),
+    arr_ppt_diff_precipitation: points.map(v => v.ppt_diff_precipitation),
+    arr_ppt_diff_reservoir:     points.map(v => v.ppt_diff_reservoir),
+  };
+
+  let obj: FakeData = { points, arrays };
 
   return obj;
 }

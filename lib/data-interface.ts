@@ -33,6 +33,11 @@ export interface DataArraysStats {
   arr_ppt_diff_reservoir:     number[];
 }
 
+export interface FakeData {
+  points: DataPointStats[];
+  arrays: DataArraysStats;
+}
+
 export interface DataProps  {
     month : string []
     chartTitle : string

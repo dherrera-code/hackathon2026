@@ -90,12 +90,12 @@ const Page = () => {
           {datapoints && datapoints.map((point, index) => (
             <tr key={index} className='bg-white'>
               <td className="text-black pl-5">
-                {point.Date}
+                {point.date}
               </td><td className="text-black">
-                {point.Precip}
+                {point.pct_precipitation}
               </td>
               <td className="text-black">
-                {point.Precip}
+                {point.ppt_diff_precipitation}
               </td>
             </tr>
           ))}
